@@ -1,8 +1,6 @@
 // components/myprojects/ProjectModal.tsx
 'use client'
 
-import { ExternalLink, X } from 'lucide-react'
-
 import { Project } from '@/data/projects'
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
@@ -69,12 +67,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         className='relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-black border border-white/10 p-8 md:p-10 rounded-sm'
         onClick={e => e.stopPropagation()}
       >
-        {/* دکمه بستن */}
+        {/* دکمه بستن (X) جایگزین شده با SVG مستقیم */}
         <button
           onClick={onClose}
           className='absolute top-4 right-4 text-white/30 hover:text-white/70 transition-colors'
         >
-          <X size={24} />
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+            <path d="M18 6 6 18"/>
+            <path d="m6 6 12 12"/>
+          </svg>
         </button>
 
         {/* هدر پروژه */}
@@ -96,7 +97,12 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 className='flex items-center gap-2 text-white/40 hover:text-white/80 transition-colors text-sm border border-white/10 px-4 py-2'
               >
                 <span>Live Demo</span>
-                <ExternalLink size={16} />
+                {/* آیکون لینک خارجی جایگزین شده با SVG مستقیم */}
+                <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M15 3h6v6"/>
+                  <path d="M10 14 21 3"/>
+                  <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                </svg>
               </a>
             )}
           </div>
