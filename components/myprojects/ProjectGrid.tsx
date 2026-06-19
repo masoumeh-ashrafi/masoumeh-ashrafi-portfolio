@@ -1,4 +1,4 @@
-// components/Projects/ProjectGrid.tsx
+// components/myprojects/ProjectGrid.tsx
 'use client'
 
 import { AnimatePresence } from 'framer-motion'
@@ -8,10 +8,12 @@ import { projects } from '@/data/projects'
 import { useState } from 'react'
 
 export default function ProjectGrid() {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null)
+  const [selectedProject, setSelectedProject] = useState<
+    (typeof projects)[0] | null
+  >(null)
   const [isModalOpen, setIsModalOpen] = useState(false)
 
-  const handleProjectClick = (project: typeof projects[0]) => {
+  const handleProjectClick = (project: (typeof projects)[0]) => {
     setSelectedProject(project)
     setIsModalOpen(true)
   }
@@ -23,7 +25,7 @@ export default function ProjectGrid() {
 
   return (
     <>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
         {projects.map((project, index) => (
           <ProjectCard
             key={project.id}
@@ -36,10 +38,7 @@ export default function ProjectGrid() {
 
       <AnimatePresence>
         {isModalOpen && selectedProject && (
-          <ProjectModal
-            project={selectedProject}
-            onClose={handleCloseModal}
-          />
+          <ProjectModal project={selectedProject} onClose={handleCloseModal} />
         )}
       </AnimatePresence>
     </>
