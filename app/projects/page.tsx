@@ -1,7 +1,7 @@
 // app/projects/page.tsx
 
 import { Metadata } from 'next'
-import ProjectGrid from '@/components/Projects/ProjectGrid'
+import ProjectGrid from '@/components/myprojects/ProjectGrid'
 
 export const metadata: Metadata = {
   title: 'Projects | Frontend Engineer & Instructor',
