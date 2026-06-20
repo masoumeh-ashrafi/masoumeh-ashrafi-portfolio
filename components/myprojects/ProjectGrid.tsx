@@ -1,4 +1,3 @@
-// components/myprojects/ProjectGrid.tsx
 'use client'
 
 import { AnimatePresence } from 'framer-motion'
@@ -25,7 +24,8 @@ export default function ProjectGrid() {
 
   return (
     <>
-      <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
+      {/* گرید پروژه‌ها با افزایش فاصله (gap) به سبک پپیتو برای خلوت‌تر شدن دیزاین */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10 relative z-10 pb-16">
         {projects.map((project, index) => (
           <ProjectCard
             key={project.id}

@@ -1,4 +1,3 @@
-// components/myprojects/ProjectModal.tsx
 'use client'
 
 import { Project } from '@/data/projects'
@@ -32,22 +31,22 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
     {
       title: 'Frontend',
       items: project.architecture.frontend,
-      color: 'border-blue-500/30',
+      color: 'border-[#8A5CF5]',
     },
     {
       title: 'Backend',
       items: project.architecture.backend,
-      color: 'border-emerald-500/30',
+      color: 'border-[#FFD3E8]',
     },
     {
       title: 'Auth',
       items: project.architecture.auth,
-      color: 'border-purple-500/30',
+      color: 'border-purple-400',
     },
     {
       title: 'Database',
       items: project.architecture.database,
-      color: 'border-amber-500/30',
+      color: 'border-indigo-400',
     },
   ]
 
@@ -56,7 +55,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
-      className='fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm'
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#1E0044]/80 backdrop-blur-md"
       onClick={onClose}
     >
       <motion.div
@@ -64,40 +63,39 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         animate={{ scale: 1, opacity: 1, y: 0 }}
         exit={{ scale: 0.95, opacity: 0, y: 20 }}
         transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-        className='relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-black border border-white/10 p-8 md:p-10 rounded-sm'
+        className="relative w-full max-w-4xl max-h-[90vh] overflow-y-auto bg-[#2D0B5A] border border-purple-500/20 p-8 md:p-10 rounded-[32px] shadow-2xl"
         onClick={e => e.stopPropagation()}
       >
-        {/* دکمه بستن (X) جایگزین شده با SVG مستقیم */}
+        {/* دکمه بستن (X) با هاور یاسی زنده */}
         <button
           onClick={onClose}
-          className='absolute top-4 right-4 text-white/30 hover:text-white/70 transition-colors'
+          className="absolute top-6 right-6 text-purple-200/40 hover:text-[#8A5CF5] transition-colors duration-300"
         >
-          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+          <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round">
             <path d="M18 6 6 18"/>
             <path d="m6 6 12 12"/>
           </svg>
         </button>
 
         {/* هدر پروژه */}
-        <div className='mb-8'>
-          <div className='flex items-start justify-between'>
+        <div className="mb-8">
+          <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
             <div>
-              <h2 className='text-3xl md:text-4xl font-light tracking-tight text-white'>
+              <h2 className="text-3xl md:text-4xl font-black text-white tracking-tight">
                 {project.title}
               </h2>
-              <p className='text-gray-400 text-base mt-2 max-w-2xl'>
+              <p className="text-purple-200/70 text-base mt-3 max-w-2xl leading-relaxed">
                 {project.description}
               </p>
             </div>
             {project.href && project.href !== '#' && (
               <a
                 href={project.href}
-                target='_blank'
-                rel='noopener noreferrer'
-                className='flex items-center gap-2 text-white/40 hover:text-white/80 transition-colors text-sm border border-white/10 px-4 py-2'
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center self-start gap-2 bg-[#8A5CF5] hover:bg-[#7646e3] text-white font-bold text-sm px-5 py-2.5 rounded-2xl shadow-lg shadow-[#8A5CF5]/20 transition-all duration-300"
               >
                 <span>Live Demo</span>
-                {/* آیکون لینک خارجی جایگزین شده با SVG مستقیم */}
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M15 3h6v6"/>
                   <path d="M10 14 21 3"/>
@@ -106,11 +104,13 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               </a>
             )}
           </div>
-          <div className='flex flex-wrap gap-2 mt-4'>
+          
+          {/* تک‌استک با رنگ‌های پاستلی */}
+          <div className="flex flex-wrap gap-2 mt-6">
             {project.techStack.map(tech => (
               <span
                 key={tech}
-                className='text-xs px-3 py-1 border border-white/10 text-gray-400'
+                className="text-xs px-3 py-1.5 bg-[#1E0044]/60 text-[#FFD3E8] border border-purple-500/20 rounded-xl font-medium"
               >
                 {tech}
               </span>
@@ -119,27 +119,27 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* دیاگرام معماری */}
-        <div className='border-t border-white/5 pt-6'>
-          <h3 className='text-sm font-light tracking-wider text-white/40 uppercase mb-4'>
+        <div className="border-t border-purple-500/20 pt-6">
+          <h3 className="text-xs font-bold tracking-widest text-[#FFD3E8] uppercase mb-6">
             Architecture Overview
           </h3>
 
-          <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {architectureLayers.map(layer => (
               <div
                 key={layer.title}
-                className={`border-l-2 ${layer.color} pl-4 py-1`}
+                className={`border-l-4 ${layer.color} pl-4 py-1 bg-[#1E0044]/30 rounded-r-2xl pr-4 py-3 border-purple-500/10 border`}
               >
-                <h4 className='text-xs uppercase tracking-wider text-white/30 mb-2'>
+                <h4 className="text-xs font-black uppercase tracking-wider text-[#8A5CF5] mb-2">
                   {layer.title}
                 </h4>
-                <ul className='space-y-1'>
+                <ul className="space-y-1.5">
                   {layer.items.map(item => (
                     <li
                       key={item}
-                      className='text-sm text-white/70 flex items-start gap-2'
+                      className="text-sm text-purple-100 flex items-start gap-2"
                     >
-                      <span className='text-white/20'>•</span>
+                      <span className="text-[#FFD3E8]">•</span>
                       {item}
                     </li>
                   ))}
@@ -150,15 +150,15 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
 
           {/* ویژگی‌های کلیدی */}
           {project.architecture.features && (
-            <div className='mt-6 pt-6 border-t border-white/5'>
-              <h4 className='text-xs uppercase tracking-wider text-white/30 mb-3'>
+            <div className="mt-8 pt-6 border-t border-purple-500/20">
+              <h4 className="text-xs font-bold tracking-widest text-[#FFD3E8] uppercase mb-4">
                 Key Features
               </h4>
-              <div className='flex flex-wrap gap-2'>
+              <div className="flex flex-wrap gap-2">
                 {project.architecture.features.map(feature => (
                   <span
                     key={feature}
-                    className='text-xs px-3 py-1 border border-white/5 text-white/40'
+                    className="text-xs px-3 py-1.5 bg-white/5 text-purple-200 rounded-xl border border-white/5"
                   >
                     {feature}
                   </span>
@@ -169,10 +169,10 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
         </div>
 
         {/* فوتر مودال */}
-        <div className='mt-6 pt-4 border-t border-white/5 flex justify-end'>
+        <div className="mt-8 pt-4 border-t border-purple-500/20 flex justify-end">
           <button
             onClick={onClose}
-            className='text-xs text-white/30 hover:text-white/60 transition-colors'
+            className="text-xs text-purple-200/40 hover:text-[#FFD3E8] transition-colors duration-300"
           >
             Press ESC to close
           </button>

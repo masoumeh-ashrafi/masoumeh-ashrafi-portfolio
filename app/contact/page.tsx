@@ -1,54 +1,57 @@
-// app/contact/page.tsx
+'use client'
+
+import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
+
+import { motion } from 'framer-motion'
 
 export default function ContactPage() {
   return (
-    <div className="max-w-4xl mx-auto px-6 py-20">
-      <h1 className="text-4xl md:text-6xl font-light mb-12 text-white">
-        Contact
-      </h1>
+    <main className="min-h-screen bg-[#1A022E] text-white px-6 py-32 md:px-12 lg:px-24 relative overflow-hidden flex flex-col items-center justify-center">
       
-      <div className="space-y-8">
-        {/* Connect Section */}
-        <div className="border-t border-white/10 pt-6">
-          <p className="text-sm text-white/40 uppercase tracking-wider mb-6">
-            Connect
+      <div className="max-w-3xl w-full relative z-10">
+        {/* تیتر با فضای بازتر */}
+        <motion.h1 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl md:text-8xl font-black tracking-tighter mb-20 text-center"
+        >
+          Contact <span className="text-[#FFB7D5]">Me</span>
+        </motion.h1>
+
+        {/* کانتینر اصلی با Padding بیشتر برای تنفس */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="bg-white/5 backdrop-blur-xl border border-white/10 p-12 md:p-20 rounded-[40px] shadow-2xl"
+        >
+          {/* متن توضیحی با فاصله استاندارد از سایر بخش‌ها */}
+          <p className="text-purple-100/70 text-xl text-center mb-16 font-medium leading-relaxed max-w-lg mx-auto">
+            همیشه آماده صحبت درباره ایده‌های نو و پروژه‌های چالش‌برانگیز هستم.
           </p>
-          <div className="flex flex-wrap gap-8">
+
+          {/* افزایش گپ بین دکمه‌ها برای جلوگیری از چسبندگی */}
+          <div className="flex flex-col md:flex-row justify-center gap-8">
             
-            {/* GitHub */}
-            <a 
-              href="https://github.com/masoumeh-ashrafi"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 text-white/40 hover:text-white transition-all duration-200 group"
-            >
-              <svg className="w-5 h-5 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.2 1.85v4"/><path d="M9 18c-4.51 2-5-2-7-2"/></svg>
-              <span>GitHub</span>
-            </a>
-
-            {/* LinkedIn */}
-            <a 
-              href="https://www.linkedin.com/in/masoumeh-ashrafi-96250825a/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3 text-white/40 hover:text-white transition-all duration-200 group"
-            >
-              <svg className="w-5 h-5 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-              <span>LinkedIn</span>
-            </a>
-
-            {/* Email */}
-            <a 
-              href="mailto:masoumeh.ashrafi98@gmail.com"
-              className="flex items-center gap-3 text-white/40 hover:text-white transition-all duration-200 group"
-            >
-              <svg className="w-5 h-5 transition-transform group-hover:scale-110" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-              <span>Email</span>
-            </a>
-
+            {[
+              { icon: <FaGithub />, name: 'GitHub', link: 'https://github.com/masoumeh-ashrafi' },
+              { icon: <FaLinkedin />, name: 'LinkedIn', link: 'https://www.linkedin.com/in/masoumeh-ashrafi-96250825a/' },
+              { icon: <FaEnvelope />, name: 'Email', link: 'mailto:masoumeh.ashrafi98@gmail.com' }
+            ].map((item, index) => (
+              <motion.a 
+                key={index}
+                whileHover={{ y: -8, backgroundColor: 'rgba(199, 125, 255, 0.15)' }}
+                href={item.link}
+                target="_blank"
+                className="flex items-center justify-center gap-4 px-10 py-5 border border-white/10 rounded-full text-white/80 hover:text-white transition-all duration-300 min-w-[160px]"
+              >
+                <span className="text-2xl">{item.icon}</span>
+                <span className="font-bold text-lg">{item.name}</span>
+              </motion.a>
+            ))}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
-  );
+    </main>
+  )
 }
