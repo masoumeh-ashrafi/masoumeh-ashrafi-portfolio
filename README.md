@@ -1,36 +1,63 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Masoumeh Ashrafi Portfolio
 
-## Getting Started
+A personal portfolio website built with **Next.js**, **TypeScript**, and **Tailwind CSS**.
 
-First, run the development server:
+This project showcases my work as a **Freelance Frontend Engineer** focused on **React**, **Next.js**, **SEO**, **web performance**, **accessibility**, and **RTL/i18n** user experiences.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Live Demo
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+https://masoumeh-ashrafi-portfolio-hiad.vercel.app/
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Purpose
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+The purpose of this portfolio is to present my frontend projects, technical focus, and professional positioning for freelance and remote frontend opportunities.
 
-## Learn More
+It is designed to communicate:
 
-To learn more about Next.js, take a look at the following resources:
+* Frontend engineering skills
+* React and Next.js experience
+* SEO-friendly frontend architecture
+* Web performance awareness
+* Responsive and accessible UI development
+* RTL/i18n interface expertise
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Tech Stack
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+* Next.js
+* React
+* TypeScript
+* Tailwind CSS
+* Vercel
 
-## Deploy on Vercel
+## Key Features
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+* Responsive portfolio layout
+* Project showcase
+* Personal branding structure
+* SEO-focused content direction
+* Clean UI and reusable components
+* Deployment on Vercel
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Current Improvements
+
+* Improving project case studies
+* Adding stronger SEO metadata
+* Fixing and documenting project links
+* Adding screenshots and visual project previews
+* Preparing the portfolio for international freelance visibility
+
+## Roadmap
+
+* Add detailed case study pages
+* Add blog/technical writing section
+* Add JSON-LD structured data
+* Improve page-level metadata
+* Add sitemap and robots configuration
+* Add Lighthouse performance report
+* Add accessibility checklist
+
+## Links
+
+* Portfolio: https://masoumeh-ashrafi-portfolio-hiad.vercel.app/
+* GitHub: https://github.com/masoumeh-ashrafi
+* LinkedIn: https://www.linkedin.com/in/masoumeh-ashrafi
