@@ -65,12 +65,17 @@ export default function HomePage() {
             </h2>
           </div>
 
-          <p className="max-w-xl text-gray-300 text-base md:text-lg leading-relaxed mx-auto md:mx-0 font-medium">
-            من با استفاده از React، Next.js و TypeScript اپلیکیشن‌های وب مدرن می‌سازم.
-            تمرکز من بر عملکرد، دسترسی‌پذیری و خلق تجربه‌های کاربری تمیز است.
-          </p>
+          {/* متن تخصصی جدید */}
+          <div className="max-w-xl mx-auto md:mx-0">
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium">
+              Frontend Engineer specializing in React, Next.js, and TypeScript.
+            </p>
+            <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium mt-2">
+              I build fast, accessible, and SEO-friendly web applications with a focus on clean UI, web performance, and RTL/i18n user experiences.
+            </p>
+          </div>
 
-          {/* دکمه‌های تصحیح شده و یکدست */}
+          {/* دکمه‌های تصحیح شده */}
           <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
             <Link
               href="/projects"
