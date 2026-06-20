@@ -19,9 +19,9 @@ export const projects: Project[] = [
   {
     id: 'razy-soft',
     title: 'Razy Soft',
-    description: 'Full-stack e-commerce platform with authentication and subscription system built for streamlined product management.',
+description: 'Full-stack e-commerce platform built with Next.js, Tailwind CSS, Prisma, Stripe, and NextAuth. Focused on authentication, product management, subscription workflows, and scalable application architecture.',
     techStack: ['Next.js', 'Tailwind CSS', 'Prisma', 'Stripe', 'NextAuth'],
-    href: 'https://razysoft.com',
+    href:'https://razyar-project-5idj-b92b20t6c-masoumeh-ashrafis-projects.vercel.app/',
     architecture: {
       frontend: ['Next.js (App Router)', 'Tailwind CSS', 'React Query', 'Framer Motion'],
       backend: ['Next.js API Routes', 'Prisma ORM', 'PostgreSQL', 'Stripe Webhooks'],
