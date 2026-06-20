@@ -7,8 +7,9 @@ import Link from 'next/link'
 
 const ROLES = [
   'Frontend Engineer',
-  'Programming Instructor',
   'React Specialist',
+  'Next.js Developer',
+  'TypeScript Developer',
 ]
 
 export default function HomePage() {
@@ -88,6 +89,14 @@ export default function HomePage() {
               className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl border border-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 active:scale-95 text-center"
             >
               Get in Touch
+              <a
+  href="https://github.com/masoumeh-ashrafi"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl border border-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 active:scale-95 text-center"
+>
+  GitHub
+</a>
             </Link>
           </div>
         </div>
