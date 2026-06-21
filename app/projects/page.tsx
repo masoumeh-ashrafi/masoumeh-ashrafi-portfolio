@@ -29,17 +29,17 @@ const projects = [
     category: 'Business Portfolio',
     highlights: ['Responsive UI', 'Gallery Layout', 'Business Branding'],
   },
- {
-  title: 'RTL Pepito Theme',
-  desc: 'RTL landing page/theme inspired by the Pepito design system, focused on responsive UI, right-to-left layout, accessibility, and SEO-friendly structure for Persian and Arabic user experiences.',
-  tech: ['HTML5', 'CSS3', 'JavaScript', 'RTL', 'SEO'],
-  image: '/images/pepito-cover.png',
-  demo: 'https://preview.themeforest.net/item/pepito-pet-care-veterinary-template/full_screen_preview/56370391',
-  github: 'https://github.com/masoumeh-ashrafi/rtl-pepito-theme',
-  status: 'Live preview available',
-  category: 'RTL / SEO UI',
-  highlights: ['RTL Layout', 'Responsive UI', 'Pepito-inspired Design'],
-},
+  {
+    title: 'RTL Pepito Theme',
+    desc: 'RTL landing page/theme inspired by the Pepito design system, focused on responsive UI, right-to-left layout, accessibility, and SEO-friendly structure for Persian and Arabic user experiences.',
+    tech: ['HTML5', 'CSS3', 'JavaScript', 'RTL', 'SEO'],
+    image: '/images/pepito-cover.png',
+    demo: 'https://preview.themeforest.net/item/pepito-pet-care-veterinary-template/full_screen_preview/56370391',
+    github: 'https://github.com/masoumeh-ashrafi/rtl-pepito-theme',
+    status: 'Live preview available',
+    category: 'RTL / SEO UI',
+    highlights: ['RTL Layout', 'Responsive UI', 'Pepito-inspired Design'],
+  },
   {
     title: 'Fateme Darvishi Website',
     desc: 'Personal portfolio and business website for a beauty service brand, focused on visual presentation, service structure, and simple user navigation.',
@@ -66,7 +66,8 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-<main className="relative min-h-screen overflow-hidden bg-[#FFF7EF] px-5 pb-28 pt-32 text-[#1F1646] sm:px-6 md:px-10 lg:px-12">      {/* Pepito-inspired soft background */}
+    <main className="relative min-h-screen overflow-hidden bg-[#FFF7EF] px-5 pb-28 pt-40 text-[#1F1646] sm:px-6 md:px-10 lg:px-12">
+      {/* Pepito-inspired soft background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute -right-24 -top-24 h-[520px] w-[520px] rounded-full bg-[#79D6CF]/30 blur-[140px]" />
         <div className="absolute -bottom-32 -left-24 h-[560px] w-[560px] rounded-full bg-[#FFB7C8]/35 blur-[150px]" />
@@ -76,7 +77,7 @@ export default function ProjectsPage() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl">
         {/* Header */}
-        <section className="mx-auto mb-16 max-w-4xl text-center md:mb-20">
+        <section className="mx-auto mb-12 max-w-4xl text-center md:mb-16">
           <motion.span
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
@@ -133,19 +134,22 @@ export default function ProjectsPage() {
         </section>
 
         {/* Project Grid */}
-<section className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">          {projects.map((project, i) => (
+        <section className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+          {projects.map((project, i) => (
             <motion.article
               key={project.title}
               initial={{ opacity: 0, y: 34 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ delay: i * 0.08 }}
-className="group relative flex h-full min-h-[620px] flex-col overflow-hidden rounded-[34px] border border-[#F3D9E3] bg-white/95 p-5 shadow-[0_24px_70px_rgba(126,76,194,0.10)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#FFB7C8] hover:shadow-[0_28px_80px_rgba(240,155,176,0.24)]"            >
+              className="group relative flex h-full min-h-[660px] flex-col overflow-hidden rounded-[34px] border border-[#F3D9E3] bg-white/95 p-5 shadow-[0_24px_70px_rgba(126,76,194,0.10)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#FFB7C8] hover:shadow-[0_28px_80px_rgba(240,155,176,0.24)]"
+            >
               <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-[#E9FAFA]/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               <div className="relative flex h-full flex-col">
                 {/* Image / Placeholder */}
-<div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-[26px] border border-[#F3D9E3] bg-[#FFF4F7]">                  {project.image ? (
+                <div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-[26px] border border-[#F3D9E3] bg-[#FFF4F7]">
+                  {project.image ? (
                     <Image
                       src={project.image}
                       alt={`${project.title} project preview`}
@@ -186,16 +190,17 @@ className="group relative flex h-full min-h-[620px] flex-col overflow-hidden rou
                   {project.title}
                 </h2>
 
-                <p className="mb-6 text-sm leading-7 text-[#6F6385] md:text-base">
+                <p className="mb-6 text-sm leading-7 text-[#6F6385] md:text-[15px]">
                   {project.desc}
                 </p>
 
                 {/* Highlights */}
-<div className="mb-6 grid grid-cols-1 gap-2.5">
-                    {project.highlights.map(item => (
+                <div className="mb-6 grid grid-cols-1 gap-2.5">
+                  {project.highlights.map(item => (
                     <div
                       key={item}
-className="rounded-2xl border border-[#F3D9E3] bg-[#FFF8F5] px-4 py-2.5 text-sm font-semibold text-[#6F6385]"                    >
+                      className="rounded-xl border border-[#F3D9E3] bg-[#FFF8F5] px-4 py-2 text-xs font-bold text-[#6F6385]"
+                    >
                       {item}
                     </div>
                   ))}
@@ -214,7 +219,7 @@ className="rounded-2xl border border-[#F3D9E3] bg-[#FFF8F5] px-4 py-2.5 text-sm 
                 </div>
 
                 {/* Actions */}
-                <div className="mt-auto flex flex-wrap items-center gap-3">
+                <div className="mt-auto flex flex-wrap items-center gap-3 pt-3">
                   {project.demo && (
                     <a
                       href={project.demo}
