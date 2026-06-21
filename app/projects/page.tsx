@@ -66,8 +66,7 @@ const projects = [
 
 export default function ProjectsPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#FFF7EF] px-5 py-24 text-[#1F1646] sm:px-6 md:px-10 lg:px-12">
-      {/* Pepito-inspired soft background */}
+<main className="relative min-h-screen overflow-hidden bg-[#FFF7EF] px-5 pb-28 pt-32 text-[#1F1646] sm:px-6 md:px-10 lg:px-12">      {/* Pepito-inspired soft background */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute -right-24 -top-24 h-[520px] w-[520px] rounded-full bg-[#79D6CF]/30 blur-[140px]" />
         <div className="absolute -bottom-32 -left-24 h-[560px] w-[560px] rounded-full bg-[#FFB7C8]/35 blur-[150px]" />
@@ -134,22 +133,19 @@ export default function ProjectsPage() {
         </section>
 
         {/* Project Grid */}
-        <section className="grid grid-cols-1 gap-7 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project, i) => (
+<section className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">          {projects.map((project, i) => (
             <motion.article
               key={project.title}
               initial={{ opacity: 0, y: 34 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: '-100px' }}
               transition={{ delay: i * 0.08 }}
-              className="group relative flex h-full flex-col overflow-hidden rounded-[34px] border border-[#F3D9E3] bg-white/90 p-4 shadow-[0_24px_70px_rgba(126,76,194,0.10)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#FFB7C8] hover:shadow-[0_28px_80px_rgba(240,155,176,0.24)]"
-            >
+className="group relative flex h-full min-h-[620px] flex-col overflow-hidden rounded-[34px] border border-[#F3D9E3] bg-white/95 p-5 shadow-[0_24px_70px_rgba(126,76,194,0.10)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#FFB7C8] hover:shadow-[0_28px_80px_rgba(240,155,176,0.24)]"            >
               <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-[#E9FAFA]/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 
               <div className="relative flex h-full flex-col">
                 {/* Image / Placeholder */}
-                <div className="relative mb-6 aspect-video overflow-hidden rounded-[26px] border border-[#F3D9E3] bg-[#FFF4F7]">
-                  {project.image ? (
+<div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-[26px] border border-[#F3D9E3] bg-[#FFF4F7]">                  {project.image ? (
                     <Image
                       src={project.image}
                       alt={`${project.title} project preview`}
@@ -195,12 +191,11 @@ export default function ProjectsPage() {
                 </p>
 
                 {/* Highlights */}
-                <div className="mb-6 grid grid-cols-1 gap-3">
-                  {project.highlights.map(item => (
+<div className="mb-6 grid grid-cols-1 gap-2.5">
+                    {project.highlights.map(item => (
                     <div
                       key={item}
-                      className="rounded-2xl border border-[#F3D9E3] bg-[#FFF8F5] px-4 py-3 text-sm font-semibold text-[#6F6385]"
-                    >
+className="rounded-2xl border border-[#F3D9E3] bg-[#FFF8F5] px-4 py-2.5 text-sm font-semibold text-[#6F6385]"                    >
                       {item}
                     </div>
                   ))}
