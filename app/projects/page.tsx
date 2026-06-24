@@ -1,252 +1,121 @@
-'use client'
+import Link from 'next/link'
+import type { Metadata } from 'next'
+import { projects } from '@/data/projects'
 
-import { FaExternalLinkAlt, FaGithub } from 'react-icons/fa'
-
-import Image from 'next/image'
-import { motion } from 'framer-motion'
-
-const projects = [
-  {
-    title: 'Razyar Invoice',
-    desc: 'Invoice management interface focused on clean UI, responsive layout, authentication, structured financial workflows, and scalable frontend architecture.',
-    tech: ['Next.js', 'TypeScript', 'Prisma', 'Tailwind CSS'],
-    image: '/images/razy-soft.png',
-    demo: '',
-    github: 'https://github.com/masoumeh-ashrafi/razyar-project',
-    status: 'Case study in progress',
-    category: 'Full-stack Frontend',
-    highlights: ['Authentication', 'Financial Workflow', 'Dashboard UI'],
-  },
-  {
-    title: 'Permanent Makeup Portfolio',
-    desc: 'A premium responsive portfolio website for a beauty and permanent makeup business, focused on gallery presentation, clean UI, and conversion-oriented structure.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    image: '/images/makeup-portfolio.png',
-    demo: '',
-    github:
-      'https://github.com/masoumeh-ashrafi/permanent-makeup-portfolio-nextjs',
-    status: 'Live-style portfolio',
-    category: 'Business Portfolio',
-    highlights: ['Responsive UI', 'Gallery Layout', 'Business Branding'],
-  },
-  {
-    title: 'RTL Pepito Theme',
-    desc: 'RTL landing page/theme inspired by the Pepito design system, focused on responsive UI, right-to-left layout, accessibility, and SEO-friendly structure for Persian and Arabic user experiences.',
-    tech: ['HTML5', 'CSS3', 'JavaScript', 'RTL', 'SEO'],
-    image: '/images/pepito-cover.png',
-    demo: 'https://preview.themeforest.net/item/pepito-pet-care-veterinary-template/full_screen_preview/56370391',
-    github: 'https://github.com/masoumeh-ashrafi/rtl-pepito-theme',
-    status: 'Live preview available',
-    category: 'RTL / SEO UI',
-    highlights: ['RTL Layout', 'Responsive UI', 'Pepito-inspired Design'],
-  },
-  {
-    title: 'Fateme Darvishi Website',
-    desc: 'Personal portfolio and business website for a beauty service brand, focused on visual presentation, service structure, and simple user navigation.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
-    image: '',
-    demo: '',
-    github: 'https://github.com/masoumeh-ashrafi/fatemedarvishi-website',
-    status: 'Legacy frontend project',
-    category: 'Static Website',
-    highlights: ['Business Website', 'Service Pages', 'Visual Layout'],
-  },
-  {
-    title: 'Modern Login Form',
-    desc: 'A clean login form interface built with HTML, CSS, and JavaScript, focused on layout, form styling, and frontend fundamentals.',
-    tech: ['HTML', 'CSS', 'JavaScript'],
-    image: '',
-    demo: '',
-    github: 'https://github.com/masoumeh-ashrafi/-modern-login-form',
-    status: 'UI component',
-    category: 'Frontend UI',
-    highlights: ['Form UI', 'CSS Styling', 'JavaScript Basics'],
-  },
-]
+export const metadata: Metadata = {
+  title: 'Projects',
+  description:
+    'Selected frontend projects by Masoumeh Ashrafi, focused on React, Next.js, TypeScript, performance, accessibility, SEO, and scalable UI architecture.',
+}
 
 export default function ProjectsPage() {
   return (
-    <main className="relative min-h-screen overflow-hidden bg-[#FFF7EF] px-5 pb-28 pt-40 text-[#1F1646] sm:px-6 md:px-10 lg:px-12">
-      {/* Pepito-inspired soft background */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute -right-24 -top-24 h-[520px] w-[520px] rounded-full bg-[#79D6CF]/30 blur-[140px]" />
-        <div className="absolute -bottom-32 -left-24 h-[560px] w-[560px] rounded-full bg-[#FFB7C8]/35 blur-[150px]" />
-        <div className="absolute left-[20%] top-[18%] h-[260px] w-[260px] rounded-full bg-[#F7D3FF]/35 blur-[120px]" />
-        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF9FB2]/50 to-transparent" />
-      </div>
+    <main className='min-h-screen bg-background text-foreground'>
+      <section className='relative isolate overflow-hidden px-6 pb-24 pt-42 sm:pb-28 sm:pt-36 lg:px-8'>
+        <div className='absolute left-1/2 top-0 -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl' />
+        <div className='absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent' />
 
-      <div className="relative z-10 mx-auto w-full max-w-7xl">
-        {/* Header */}
-        <section className="mx-auto mb-12 max-w-4xl text-center md:mb-16">
-          <motion.span
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="mb-5 inline-flex rounded-full border border-[#FFD8E3] bg-white/80 px-6 py-2 text-xs font-black uppercase tracking-[0.28em] text-[#D86F8A] shadow-sm backdrop-blur-sm"
-          >
-            Featured Work
-          </motion.span>
+        <div className='mx-auto max-w-6xl'>
+          <div className='max-w-3xl'>
+            <p className='text-sm font-medium text-white/45'>Selected Work</p>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.08 }}
-            className="text-5xl font-black tracking-[-0.06em] text-[#1F1646] sm:text-6xl md:text-8xl"
-          >
-            Selected{' '}
-            <span className="bg-gradient-to-r from-[#7E4CC2] via-[#FF8A7A] to-[#FFB7C8] bg-clip-text text-transparent">
-              Projects
-            </span>
-          </motion.h1>
+            <h1 className='mt-5 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl'>
+              Frontend projects built with product thinking and clean
+              architecture.
+            </h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.16 }}
-            className="mx-auto mt-6 max-w-2xl text-base leading-8 text-[#6F6385] md:text-lg"
-          >
-            A curated collection of frontend projects focused on React, Next.js,
-            TypeScript, SEO, performance, accessibility, and RTL/i18n user
-            experiences.
-          </motion.p>
+            <p className='mt-6 max-w-2xl text-base leading-8 text-white/60 sm:text-lg'>
+              A curated set of projects focused on scalable UI systems,
+              performance, accessibility, SEO, and maintainable frontend
+              architecture.
+            </p>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 18 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.24 }}
-            className="mt-8 flex flex-wrap justify-center gap-3"
-          >
-            {[
-              'React',
-              'Next.js',
-              'TypeScript',
-              'SEO',
-              'Performance',
-              'RTL/i18n',
-            ].map(item => (
-              <span
-                key={item}
-                className="rounded-full border border-[#F3D9E3] bg-white/80 px-4 py-2 text-sm font-bold text-[#7E4CC2] shadow-sm backdrop-blur-sm"
+          <div className='mt-14 grid gap-6 md:grid-cols-2'>
+            {projects.map(project => (
+              <article
+                key={project.id}
+                className='group flex h-full flex-col rounded-3xl border border-white/10 bg-white/[0.035] p-6 transition hover:border-white/20 hover:bg-white/[0.055]'
               >
-                {item}
-              </span>
-            ))}
-          </motion.div>
-        </section>
-
-        {/* Project Grid */}
-        <section className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project, i) => (
-            <motion.article
-              key={project.title}
-              initial={{ opacity: 0, y: 34 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-100px' }}
-              transition={{ delay: i * 0.08 }}
-              className="group relative flex h-full min-h-[660px] flex-col overflow-hidden rounded-[34px] border border-[#F3D9E3] bg-white/95 p-5 shadow-[0_24px_70px_rgba(126,76,194,0.10)] backdrop-blur-xl transition-all duration-500 hover:-translate-y-1 hover:border-[#FFB7C8] hover:shadow-[0_28px_80px_rgba(240,155,176,0.24)]"
-            >
-              <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-[#E9FAFA]/60 opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
-
-              <div className="relative flex h-full flex-col">
-                {/* Image / Placeholder */}
-                <div className="relative mb-6 aspect-[16/10] overflow-hidden rounded-[26px] border border-[#F3D9E3] bg-[#FFF4F7]">
-                  {project.image ? (
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} project preview`}
-                      fill
-                      sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-                      className="object-cover transition-transform duration-700 group-hover:scale-105"
-                    />
-                  ) : (
-                    <div className="flex h-full w-full items-center justify-center bg-gradient-to-br from-[#FFE6EF] via-[#E9FAFA] to-[#F5E9FF]">
-                      <div className="px-6 text-center">
-                        <p className="text-xs font-black uppercase tracking-[0.25em] text-[#D86F8A]">
-                          Frontend Project
-                        </p>
-                        <h3 className="mt-4 text-2xl font-black leading-tight text-[#1F1646]">
-                          {project.title}
-                        </h3>
-                        <p className="mt-3 text-xs font-semibold text-[#6F6385]">
-                          UI · Responsive · Frontend
-                        </p>
-                      </div>
-                    </div>
-                  )}
-
-                  <div className="absolute left-4 top-4 rounded-full border border-white/70 bg-white/90 px-4 py-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#7E4CC2] shadow-sm backdrop-blur-md">
+                <div className='flex flex-wrap items-center gap-3'>
+                  <span className='rounded-full border border-white/10 bg-white/[0.04] px-3 py-1 text-xs font-medium text-white/55'>
                     {project.category}
-                  </div>
-                </div>
-
-                {/* Status */}
-                <div className="mb-4 flex flex-wrap items-center gap-3">
-                  <span className="rounded-full border border-[#F3D9E3] bg-[#FFF4F7] px-4 py-1.5 text-xs font-bold text-[#D86F8A]">
-                    {project.status}
                   </span>
+
+                  <span className='text-xs text-white/35'>{project.year}</span>
                 </div>
 
-                {/* Content */}
-                <h2 className="mb-4 text-2xl font-black tracking-tight text-[#1F1646] md:text-3xl">
-                  {project.title}
-                </h2>
+                <div className='mt-6'>
+                  <h2 className='text-2xl font-semibold tracking-tight text-white'>
+                    {project.title}
+                  </h2>
 
-                <p className="mb-6 text-sm leading-7 text-[#6F6385] md:text-[15px]">
-                  {project.desc}
-                </p>
+                  <p className='mt-2 text-sm font-medium text-white/40'>
+                    {project.role}
+                  </p>
 
-                {/* Highlights */}
-                <div className="mb-6 grid grid-cols-1 gap-2.5">
-                  {project.highlights.map(item => (
+                  <p className='mt-5 text-sm leading-7 text-white/62'>
+                    {project.summary}
+                  </p>
+                </div>
+
+                <div className='mt-7 grid gap-3'>
+                  {project.highlights.slice(0, 3).map(highlight => (
                     <div
-                      key={item}
-                      className="rounded-xl border border-[#F3D9E3] bg-[#FFF8F5] px-4 py-2 text-xs font-bold text-[#6F6385]"
+                      key={highlight}
+                      className='rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm text-white/58'
                     >
-                      {item}
+                      {highlight}
                     </div>
                   ))}
                 </div>
 
-                {/* Tech */}
-                <div className="mb-7 flex flex-wrap gap-2.5">
-                  {project.tech.map(t => (
+                <div className='mt-7 flex flex-wrap gap-2'>
+                  {project.techStack.map(tech => (
                     <span
-                      key={t}
-                      className="rounded-full border border-[#F3D9E3] bg-[#FFF4F7] px-3.5 py-1.5 text-xs font-bold text-[#7E4CC2]"
+                      key={tech}
+                      className='rounded-full bg-white/[0.06] px-3 py-1 text-xs font-medium text-white/55'
                     >
-                      {t}
+                      {tech}
                     </span>
                   ))}
                 </div>
 
-                {/* Actions */}
-                <div className="mt-auto flex flex-wrap items-center gap-3 pt-3">
-                  {project.demo && (
-                    <a
-                      href={project.demo}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-2xl bg-[#7E4CC2] px-5 py-3 text-sm font-bold text-white shadow-[0_16px_34px_rgba(126,76,194,0.22)] transition hover:bg-[#6B3DB0]"
+                <div className='mt-auto flex flex-wrap gap-3 pt-8'>
+                  {project.caseStudyUrl ? (
+                    <Link
+                      href={project.caseStudyUrl}
+                      className='inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold text-black transition hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
                     >
-                      Live Demo <FaExternalLinkAlt />
-                    </a>
-                  )}
+                      Read case study
+                    </Link>
+                  ) : null}
 
-                  {project.github && (
+                  <a
+                    href={project.liveUrl}
+                    target='_blank'
+                    rel='noopener noreferrer'
+                    className='inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
+                  >
+                    Live demo
+                  </a>
+
+                  {project.githubUrl ? (
                     <a
-                      href={project.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 rounded-2xl border border-[#F3D9E3] bg-[#FFF4F7] px-5 py-3 text-sm font-bold text-[#1F1646] transition hover:bg-[#FFE6EF] hover:text-[#D86F8A]"
+                      href={project.githubUrl}
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      className='inline-flex items-center justify-center rounded-xl px-4 py-2.5 text-sm font-semibold text-white/55 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white'
                     >
-                      View Repository <FaGithub />
+                      Source code
                     </a>
-                  )}
+                  ) : null}
                 </div>
-              </div>
-            </motion.article>
-          ))}
-        </section>
-      </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
     </main>
   )
 }

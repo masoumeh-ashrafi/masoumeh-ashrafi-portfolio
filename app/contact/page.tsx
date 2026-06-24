@@ -1,57 +1,138 @@
-'use client'
+import type { Metadata } from 'next'
+import { siteConfig } from '@/config/site'
 
-import { FaEnvelope, FaGithub, FaLinkedin } from 'react-icons/fa'
+export const metadata: Metadata = {
+  title: 'Contact',
+  description:
+    'Contact Masoumeh Ashrafi for frontend engineering projects, React and Next.js development, performance optimization, SEO-ready interfaces, and scalable UI architecture.',
+}
 
-import { motion } from 'framer-motion'
+const projectTypes = [
+  'React / Next.js frontend development',
+  'Performance and Core Web Vitals optimization',
+  'SEO-ready marketing or portfolio websites',
+  'UI architecture and design system implementation',
+]
+
+const messageChecklist = [
+  'Project type and main goal',
+  'Current website or product link, if available',
+  'Expected timeline',
+  'Budget range, if already defined',
+]
+
+const emailHref = `mailto:${siteConfig.email}?subject=Frontend%20Project%20Inquiry&body=Hi%20Masoumeh,%0D%0A%0D%0AI%27m%20reaching%20out%20about%20a%20frontend%20project.%0D%0A%0D%0AProject%20type:%0D%0AGoal:%0D%0ATimeline:%0D%0ABudget%20range:%0D%0AWebsite/product%20link:%0D%0A%0D%0AThanks.`
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-[#1A022E] text-white px-6 py-32 md:px-12 lg:px-24 relative overflow-hidden flex flex-col items-center justify-center">
-      
-      <div className="max-w-3xl w-full relative z-10">
-        {/* تیتر با فضای بازتر */}
-        <motion.h1 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-5xl md:text-8xl font-black tracking-tighter mb-20 text-center"
-        >
-          Contact <span className="text-[#FFB7D5]">Me</span>
-        </motion.h1>
+    <main className='min-h-screen bg-background text-foreground'>
+      <section className='relative isolate overflow-hidden px-6 pb-24 pt-32 sm:pb-28 sm:pt-36 lg:px-8'>
+        <div className='absolute left-1/2 top-0 -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl' />
+        <div className='absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent' />
 
-        {/* کانتینر اصلی با Padding بیشتر برای تنفس */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="bg-white/5 backdrop-blur-xl border border-white/10 p-12 md:p-20 rounded-[40px] shadow-2xl"
-        >
-          {/* متن توضیحی با فاصله استاندارد از سایر بخش‌ها */}
-          <p className="text-purple-100/70 text-xl text-center mb-16 font-medium leading-relaxed max-w-lg mx-auto">
-            همیشه آماده صحبت درباره ایده‌های نو و پروژه‌های چالش‌برانگیز هستم.
-          </p>
+        <div className='mx-auto grid max-w-6xl gap-10 lg:grid-cols-[1.05fr_0.95fr]'>
+          <div>
+            <p className='text-sm font-medium text-white/45'>Contact</p>
 
-          {/* افزایش گپ بین دکمه‌ها برای جلوگیری از چسبندگی */}
-          <div className="flex flex-col md:flex-row justify-center gap-8">
-            
-            {[
-              { icon: <FaGithub />, name: 'GitHub', link: 'https://github.com/masoumeh-ashrafi' },
-              { icon: <FaLinkedin />, name: 'LinkedIn', link: 'https://www.linkedin.com/in/masoumeh-ashrafi-96250825a/' },
-              { icon: <FaEnvelope />, name: 'Email', link: 'mailto:masoumeh.ashrafi98@gmail.com' }
-            ].map((item, index) => (
-              <motion.a 
-                key={index}
-                whileHover={{ y: -8, backgroundColor: 'rgba(199, 125, 255, 0.15)' }}
-                href={item.link}
-                target="_blank"
-                className="flex items-center justify-center gap-4 px-10 py-5 border border-white/10 rounded-full text-white/80 hover:text-white transition-all duration-300 min-w-[160px]"
-              >
-                <span className="text-2xl">{item.icon}</span>
-                <span className="font-bold text-lg">{item.name}</span>
-              </motion.a>
-            ))}
+            <h1 className='mt-5 max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-[3.75rem] lg:leading-[1.05]'>
+              Have a frontend project that needs clean execution?
+            </h1>
+
+            <p className='mt-6 max-w-2xl text-base leading-8 text-white/64 sm:text-lg'>
+              I work on React and Next.js projects that need fast interfaces,
+              scalable frontend architecture, accessible UI, and SEO-aware
+              implementation.
+            </p>
+
+           <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+  <a
+    href={emailHref}
+    style={{ color: '#05050a' }}
+    className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold transition hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+  >
+    Start by email
+  </a>
+
+  <a
+    href={siteConfig.linkedinUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+  >
+    LinkedIn
+  </a>
+
+  <a
+    href={siteConfig.githubUrl}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-white/60 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+  >
+    GitHub
+  </a>
+</div>
           </div>
-        </motion.div>
-      </div>
+
+          <aside className='rounded-3xl border border-white/10 bg-white/[0.035] p-6 sm:p-8'>
+            <h2 className='text-xl font-semibold text-white'>
+              Good fit projects
+            </h2>
+
+            <ul className='mt-5 grid gap-3'>
+              {projectTypes.map(item => (
+                <li
+                  key={item}
+                  className='rounded-2xl border border-white/10 bg-black/20 px-4 py-3 text-sm leading-6 text-white/62'
+                >
+                  {item}
+                </li>
+              ))}
+            </ul>
+
+            <div className='mt-8 border-t border-white/10 pt-8'>
+              <h2 className='text-xl font-semibold text-white'>
+                What to include
+              </h2>
+
+              <ul className='mt-5 grid gap-3'>
+                {messageChecklist.map(item => (
+                  <li
+                    key={item}
+                    className='flex gap-3 text-sm leading-6 text-white/62'
+                  >
+                    <span className='text-white/30'>•</span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className='mt-8 border-t border-white/10 pt-8'>
+              <h2 className='text-xl font-semibold text-white'>
+                Response expectation
+              </h2>
+
+              <p className='mt-4 text-sm leading-7 text-white/62'>
+                I usually respond within 24–48 hours with a short follow-up
+                about scope, timeline, and the next practical step.
+              </p>
+            </div>
+
+            <div className='mt-8 rounded-2xl border border-white/10 bg-black/20 p-4'>
+              <p className='text-sm leading-6 text-white/55'>
+                Preferred contact:
+              </p>
+
+              <a
+                href={`mailto:${siteConfig.email}`}
+                className='mt-2 inline-flex text-sm font-semibold text-white/75 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white'
+              >
+                {siteConfig.email}
+              </a>
+            </div>
+          </aside>
+        </div>
+      </section>
     </main>
   )
 }

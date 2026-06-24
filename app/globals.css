@@ -1,53 +1,105 @@
-/* app/globals.css */
 @import "tailwindcss";
 
 @theme {
-  --color-background: #000000;
-  --color-foreground: #ffffff;
-  --color-primary: #ffffff;
-  --color-secondary: rgba(255, 255, 255, 0.6);
-  --color-muted: rgba(255, 255, 255, 0.3);
-  --color-border: rgba(255, 255, 255, 0.1);
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
 
-  --font-display: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --color-background: #05050a;
+  --color-foreground: #ffffff;
+
+  --color-surface: #0b0b12;
+  --color-surface-muted: #11111a;
+
+  --color-muted: rgba(255, 255, 255, 0.56);
+  --color-muted-foreground: rgba(255, 255, 255, 0.68);
+
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-ring: rgba(255, 255, 255, 0.4);
+
+  --color-accent: #8b5cf6;
+  --color-accent-foreground: #ffffff;
 }
 
-/* استایل‌های پایه ریشه */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+html {
+  min-height: 100%;
+  background: var(--color-background);
+  color-scheme: dark;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
 }
 
 body {
-  background-color: var(--color-background);
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top center, rgba(139, 92, 246, 0.1), transparent 32rem),
+    var(--color-background);
   color: var(--color-foreground);
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* کلاس سفارشی پس‌زمینه گرید */
-.bg-grid-pattern {
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 50px 50px;
+::selection {
+  background: rgba(139, 92, 246, 0.35);
+  color: #ffffff;
 }
 
-/* اسکرول‌بار اختصاصی مدرن */
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+img,
+svg,
+video,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+.bg-grid-pattern {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
 ::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
 }
+
 ::-webkit-scrollbar-track {
-  background: #000000;
+  background: var(--color-background);
 }
+
 ::-webkit-scrollbar-thumb {
-  background: #222222;
-  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 999px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
-  background: #333333;
+  background: rgba(255, 255, 255, 0.24);
 }

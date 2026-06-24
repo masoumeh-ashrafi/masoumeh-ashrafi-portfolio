@@ -1,118 +1,109 @@
-'use client'
+import { personJsonLd, websiteJsonLd } from '@/lib/seo'
 
-import { useEffect, useState } from 'react'
-
+import { HeroRoleRotator } from '@/components/home/hero-role-rotator'
 import Image from 'next/image'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 
-const ROLES = [
-  'Frontend Engineer',
-  'React Specialist',
-  'Next.js Developer',
-  'TypeScript Developer',
+export const metadata: Metadata = {
+  title: 'Frontend Engineer for Fast, Accessible Web Interfaces',
+  description:
+    'Masoumeh Ashrafi is a frontend engineer building fast, accessible, SEO-ready web interfaces with React, Next.js, TypeScript, and scalable UI architecture.',
+  alternates: {
+    canonical: '/',
+  },
+}
+
+const highlights = [
+  'Performance-first interfaces',
+  'SEO-ready Next.js architecture',
+  'Accessible and RTL/i18n-aware UI',
 ]
 
 export default function HomePage() {
-  const [roleIndex, setRoleIndex] = useState(0)
-  const [displayText, setDisplayText] = useState('')
-  const [isDeleting, setIsDeleting] = useState(false)
-
-  useEffect(() => {
-    const currentRole = ROLES[roleIndex]
-    let timeout: NodeJS.Timeout
-
-    if (!isDeleting && displayText.length < currentRole.length) {
-      timeout = setTimeout(() => {
-        setDisplayText(currentRole.slice(0, displayText.length + 1))
-      }, 70)
-    } else if (!isDeleting && displayText === currentRole) {
-      timeout = setTimeout(() => {
-        setIsDeleting(true)
-      }, 1500)
-    } else if (isDeleting && displayText.length > 0) {
-      timeout = setTimeout(() => {
-        setDisplayText(currentRole.slice(0, displayText.length - 1))
-      }, 35)
-    } else if (isDeleting && displayText.length === 0) {
-      setIsDeleting(false)
-      setRoleIndex((prev) => (prev + 1) % ROLES.length)
-    }
-
-    return () => clearTimeout(timeout)
-  }, [displayText, isDeleting, roleIndex])
+  const jsonLd = [personJsonLd(), websiteJsonLd()]
 
   return (
-    <main className="relative flex min-h-screen items-center justify-center overflow-hidden bg-[#2D0B5A] px-6 py-12 md:py-20">
-      
-      {/* هاله‌های نوری پس‌زمینه */}
-      <div className="absolute top-[-10%] left-[-10%] w-[400px] h-[400px] bg-[#8A5CF5] opacity-25 blur-[120px] rounded-full pointer-events-none" />
-      <div className="absolute bottom-[-10%] right-[-10%] w-[350px] h-[350px] bg-[#FFD3E8] opacity-20 blur-[100px] rounded-full pointer-events-none" />
+    <main className="min-h-screen bg-background text-foreground">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(jsonLd).replace(/</g, '\\u003c'),
+        }}
+      />
 
-      <section className="relative z-10 mx-auto max-w-6xl w-full grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        
-        {/* ستون متن */}
-        <div className="flex flex-col space-y-7 text-center md:text-left order-2 md:order-1">
-          <p className="text-sm uppercase tracking-[0.3em] text-[#FFD3E8] font-black">
-            Welcome to my portfolio
-          </p>
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-black tracking-tight text-white leading-[1.1]">
-            MASOUMEH ASHRAFI
-          </h1>
-          
-          <div className="h-12 flex items-center justify-center md:justify-start">
-            <h2 className="text-2xl text-purple-200 md:text-3xl font-bold">
-              <span>{displayText}</span>
-              <span className="animate-pulse ml-1 text-[#FFD3E8]">|</span>
-            </h2>
-          </div>
+      <section className="relative isolate overflow-hidden px-6 pb-24 pt-32 sm:pb-28 sm:pt-36 lg:px-8">
+        <div className="absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
+        <div className="absolute left-1/2 top-[-240px] -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
 
-          {/* متن تخصصی جدید */}
-          <div className="max-w-xl mx-auto md:mx-0">
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium">
-              Frontend Engineer specializing in React, Next.js, and TypeScript.
+        <div className="mx-auto grid max-w-6xl items-center gap-14 lg:grid-cols-[1.08fr_0.92fr]">
+          <div className="max-w-2xl">
+            <p className="mb-5 inline-flex rounded-full border border-white/10 bg-white/[0.04] px-4 py-2 text-sm font-medium text-white/60">
+              Frontend Engineer · React · Next.js · TypeScript
             </p>
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium mt-2">
-              I build fast, accessible, and SEO-friendly web applications with a focus on clean UI, web performance, and RTL/i18n user experiences.
-            </p>
-          </div>
 
-          {/* دکمه‌های تصحیح شده */}
-          <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center md:justify-start">
-            <Link
-              href="/projects"
-              className="px-8 py-4 bg-[#8A5CF5] hover:bg-[#7646e3] text-white font-bold rounded-xl transition-all duration-300 shadow-[0_0_20px_rgba(138,92,245,0.4)] hover:scale-105 active:scale-95 text-center"
-            >
-              View My Work
-            </Link>
-            <Link
-              href="/contact"
-              className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl border border-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 active:scale-95 text-center"
-            >
-              Get in Touch
+            <h1 className="text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl lg:leading-[1.05]">
+              I build fast, accessible, and conversion-focused web interfaces.
+            </h1>
+
+            <HeroRoleRotator />
+
+            <p className="mt-6 max-w-xl text-base leading-8 text-white/68 sm:text-lg">
+              I help businesses turn complex product ideas into scalable
+              frontend systems using React, Next.js, TypeScript, and clean UI
+              architecture.
+            </p>
+
+            <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/case-studies"
+                style={{ color: '#05050a' }}
+                className="inline-flex items-center justify-center rounded-xl bg-white px-6 py-3 text-sm font-semibold transition hover:bg-white/90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                View case studies
+              </Link>
+
+              <Link
+                href="/contact"
+                className="inline-flex items-center justify-center rounded-xl border border-white/12 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                Start a project
+              </Link>
+
               <a
-  href="https://github.com/masoumeh-ashrafi"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="px-8 py-4 bg-white/5 hover:bg-white/10 text-white font-bold rounded-xl border border-white/10 backdrop-blur-sm transition-all duration-300 hover:scale-105 active:scale-95 text-center"
->
-  GitHub
-</a>
-            </Link>
-          </div>
-        </div>
+                href="https://github.com/masoumeh-ashrafi"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-white/60 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+              >
+                GitHub
+              </a>
+            </div>
 
-        {/* قاب عکس نئونی */}
-        <div className="flex justify-center order-1 md:order-2">
-          <div className="relative w-[300px] h-[300px] sm:w-[360px] sm:h-[360px] md:w-[420px] md:h-[420px]">
-            <div className="absolute inset-0 bg-gradient-to-tr from-[#8A5CF5] to-[#FFB7D5] rounded-full blur-2xl opacity-60 animate-pulse" />
-            <div className="absolute inset-2 bg-[#1E0044] rounded-full border-4 border-white/10 overflow-hidden shadow-[0_0_30px_rgba(255,255,255,0.1)] flex items-center justify-center">
+            <div className="mt-10 grid gap-3 sm:grid-cols-3">
+              {highlights.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-2xl border border-white/10 bg-white/[0.03] p-4 text-sm leading-6 text-white/62"
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="relative mx-auto w-full max-w-[420px]">
+            <div className="absolute inset-0 -z-10 rounded-full bg-accent/15 blur-3xl" />
+
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-3 shadow-2xl shadow-black/30">
               <Image
                 src="/images/my-avatar.jpg"
-                alt="Masoumeh Ashrafi"
-                width={420}
-                height={420}
+                alt="Masoumeh Ashrafi, frontend engineer"
+                width={840}
+                height={840}
                 priority
-                className="object-cover w-full h-full"
+                sizes="(min-width: 1024px) 420px, (min-width: 640px) 360px, 300px"
+                className="aspect-square rounded-[1.5rem] object-cover"
               />
             </div>
           </div>
