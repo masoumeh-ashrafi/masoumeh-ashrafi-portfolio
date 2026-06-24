@@ -59,7 +59,7 @@ export default function ProjectCard({
         </h3>
         <div className='inline-block bg-[#240643]/40 backdrop-blur-md p-4 rounded-2xl border border-white/5 shadow-xl'>
           <p className='text-purple-100 text-sm md:text-base leading-relaxed line-clamp-2 font-medium'>
-            {project.description}
+          {project.summary}
           </p>
         </div>
       </div>

@@ -31,7 +31,7 @@ export interface Project {
   }
 }
 
-export const projects = [
+export const projects: Project[] = [
   {
     id: 'razy',
     title: 'Razy B2B Platform',
@@ -124,4 +124,4 @@ export const projects = [
       ],
     },
   },
-] satisfies Project[]
+]
