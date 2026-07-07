@@ -51,21 +51,37 @@ export function Footer() {
 
           <div className="mt-4 grid gap-3">
             <a
-              href={siteConfig.githubUrl}
+              href={siteConfig.social.github}
               target="_blank"
               rel="noopener noreferrer"
               className="text-sm text-white/55 transition hover:text-white"
             >
               GitHub
             </a>
-              <a
-  href={siteConfig.linkedinUrl}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-sm text-white/55 transition hover:text-white"
->
-  LinkedIn
-</a>
+            <a
+              href={siteConfig.social.linkedin}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-white/55 transition hover:text-white"
+            >
+              LinkedIn
+            </a>
+            <a
+              href={siteConfig.social.youtube}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-white/55 transition hover:text-white"
+            >
+              YouTube
+            </a>
+            <a
+              href={siteConfig.social.instagram}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-sm text-white/55 transition hover:text-white"
+            >
+              Instagram
+            </a>
             <a
               href={`mailto:${siteConfig.email}`}
               className="text-sm text-white/55 transition hover:text-white"
