@@ -2,7 +2,7 @@ export const siteConfig = {
   name: 'Masoumeh Ashrafi',
   role: 'Frontend Engineer',
   email: 'masoumeh.ashrafi98@gmail.com',
-  url: 'http://localhost:3000',
+  url: 'https://www.masoumeh-ashrafi.ir',
   githubUrl: 'https://github.com/masoumeh-ashrafi',
   linkedinUrl: 'https://www.linkedin.com/in/masoumeh-ashrafi-96250825a/',
   navItems: [
