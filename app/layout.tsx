@@ -13,7 +13,8 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.url),
+  metadataBase: new URL('https://www.masoumeh-ashrafi.ir'),
+ 
   title: {
     default: `${siteConfig.name} | Frontend Engineer`,
     template: `%s | ${siteConfig.name}`,
