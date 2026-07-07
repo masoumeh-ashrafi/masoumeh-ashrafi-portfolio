@@ -2,6 +2,7 @@ import { personJsonLd, websiteJsonLd } from '@/lib/seo'
 
 import { HeroRoleRotator } from '@/components/home/hero-role-rotator'
 import Image from 'next/image'
+import InstagramGallery from '@/components/instagram/InstagramGallery';
 import Link from 'next/link'
 import type { Metadata } from 'next'
 
@@ -32,6 +33,7 @@ export default function HomePage() {
         }}
       />
 
+      {/* Hero Section */}
       <section className="relative isolate overflow-hidden px-6 pb-24 pt-32 sm:pb-28 sm:pt-36 lg:px-8">
         <div className="absolute inset-x-0 top-0 -z-10 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent" />
         <div className="absolute left-1/2 top-[-240px] -z-10 h-[520px] w-[520px] -translate-x-1/2 rounded-full bg-accent/10 blur-3xl" />
@@ -94,7 +96,6 @@ export default function HomePage() {
 
           <div className="relative mx-auto w-full max-w-[420px]">
             <div className="absolute inset-0 -z-10 rounded-full bg-accent/15 blur-3xl" />
-
             <div className="relative overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.04] p-3 shadow-2xl shadow-black/30">
               <Image
                 src="/images/my-avatar.jpg"
@@ -109,6 +110,13 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Instagram Gallery Section - اضافه شده توسط منتور */}
+      <section className="mx-auto max-w-6xl px-6 pb-24 lg:px-8">
+        <h2 className="mb-8 text-2xl font-semibold text-white">Latest from Instagram</h2>
+        <InstagramGallery />
+      </section>
+
     </main>
   )
 }
