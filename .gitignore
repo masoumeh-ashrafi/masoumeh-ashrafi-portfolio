@@ -51,3 +51,7 @@ ehthumbs.db
 .node-version
 *.log
 11.18.0
+/Build
+/next
+/cls
+/portfolio@0.1.0
