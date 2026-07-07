@@ -74,6 +74,11 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
+
+
+   verification: {
+    google: "91ff5717875106e9", // فقط همین کد رو از توی تگی که گوگل بهت داده بردار
+  },
 }
 
 export default function RootLayout({
