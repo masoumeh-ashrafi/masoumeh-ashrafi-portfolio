@@ -9,7 +9,8 @@ export function personJsonLd() {
     url: siteConfig.url,
     jobTitle: siteConfig.role,
     email: siteConfig.email,
-    sameAs: [siteConfig.githubUrl, siteConfig.linkedinUrl],
+    sameAs: [siteConfig.social.github, siteConfig.social.linkedin],
+
     knowsAbout: [
       'React',
       'Next.js',

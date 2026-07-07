@@ -54,7 +54,7 @@ export default function ContactPage() {
   </a>
 
   <a
-    href={siteConfig.linkedinUrl}
+href={siteConfig.social.linkedin}
     target="_blank"
     rel="noopener noreferrer"
     className="inline-flex items-center justify-center rounded-xl border border-white/10 bg-white/[0.03] px-6 py-3 text-sm font-semibold text-white transition hover:bg-white/[0.07] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
@@ -63,7 +63,7 @@ export default function ContactPage() {
   </a>
 
   <a
-    href={siteConfig.githubUrl}
+href={siteConfig.social.github}
     target="_blank"
     rel="noopener noreferrer"
     className="inline-flex items-center justify-center rounded-xl px-6 py-3 text-sm font-semibold text-white/60 transition hover:text-white focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
