@@ -4,6 +4,7 @@ import { Footer } from '@/components/layout/Footer'
 import Header from '@/components/layout/Header'
 import { Inter } from 'next/font/google'
 import type { Metadata } from 'next'
+import { SpeedInsights } from "@vercel/speed-insights/next"
 import { siteConfig } from '@/config/site'
 
 const inter = Inter({
@@ -75,10 +76,8 @@ export const metadata: Metadata = {
       'max-video-preview': -1,
     },
   },
-
-
-   verification: {
-    google: "91ff5717875106e9", // فقط همین کد رو از توی تگی که گوگل بهت داده بردار
+  verification: {
+    google: "91ff5717875106e9",
   },
 }
 
@@ -87,12 +86,30 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Person',
+    name: 'Masoumeh Ashrafi',
+    jobTitle: 'Frontend Engineer',
+    url: 'https://www.masoumeh-ashrafi.ir',
+    sameAs: [
+      'https://github.com/masoumeh-ashrafi',
+      'https://www.linkedin.com/in/masoumeh-ashrafi-96250825a/'
+    ],
+  }
+
   return (
     <html lang="en" className={inter.variable}>
       <body>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        
         <Header />
         {children}
         <Footer />
+        <SpeedInsights />
       </body>
     </html>
   )
