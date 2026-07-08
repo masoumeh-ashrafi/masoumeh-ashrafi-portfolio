@@ -1,21 +1,37 @@
-import './globals.css'
-
-import { Footer } from '@/components/layout/Footer'
-import Header from '@/components/layout/Header'
-import { Inter } from 'next/font/google'
-import type { Metadata } from 'next'
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { siteConfig } from '@/config/site'
+import './globals.css';
+import { Footer } from '@/components/layout/Footer';
+import Header from '@/components/layout/Header';
+import { Inter } from 'next/font/google';
+import type { Metadata } from 'next';
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { siteConfig } from '@/config/site';
 
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
   display: 'swap',
-})
+});
+
+// تعریف اسکیما برای هویت‌بخشی بهتر به گوگل
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  'name': 'Masoumeh Ashrafi',
+  'jobTitle': 'Frontend Engineer & PhD Candidate in Architecture',
+  'url': 'https://www.masoumeh-ashrafi.ir',
+  'sameAs': [
+    'https://github.com/masoumeh-ashrafi',
+    'https://www.linkedin.com/in/masoumeh-ashrafi-96250825a/'
+  ],
+  'knowsAbout': ['React', 'Next.js', 'TypeScript', 'Web Architecture', 'Frontend Performance', 'SEO'],
+  'worksFor': {
+    '@type': 'Organization',
+    'name': 'Independent'
+  }
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.masoumeh-ashrafi.ir'),
- 
   title: {
     default: `${siteConfig.name} | Frontend Engineer`,
     template: `%s | ${siteConfig.name}`,
@@ -37,6 +53,7 @@ export const metadata: Metadata = {
     'SEO Frontend',
     'Accessible UI',
     'UI Architecture',
+    'Architecture'
   ],
   alternates: {
     canonical: '/',
@@ -79,38 +96,27 @@ export const metadata: Metadata = {
   verification: {
     google: "91ff5717875106e9",
   },
-}
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Masoumeh Ashrafi',
-    jobTitle: 'Frontend Engineer',
-    url: 'https://www.masoumeh-ashrafi.ir',
-    sameAs: [
-      'https://github.com/masoumeh-ashrafi',
-      'https://www.linkedin.com/in/masoumeh-ashrafi-96250825a/'
-    ],
-  }
-
   return (
     <html lang="en" className={inter.variable}>
-      <body>
+      <head>
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
-        
+      </head>
+      <body>
         <Header />
-        {children}
+        <main>{children}</main>
         <Footer />
         <SpeedInsights />
       </body>
     </html>
-  )
+  );
 }
